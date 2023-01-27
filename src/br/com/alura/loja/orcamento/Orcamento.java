@@ -11,16 +11,23 @@ public class Orcamento {
     public Orcamento(BigDecimal valor, int quantidadeIntes) {
         this.valor = valor;
         this.quantidadeIntes = quantidadeIntes;
+        this.situacao = new EmAnalise();
     }
 
     public void aplicarDescontoExtra() {
-        BigDecimal valorDescontoExtra = BigDecimal.ZERO;
-        if (situacao.equals("EM ANALISE")) {
-            valorDescontoExtra = new BigDecimal("0.05");
-        } else if (situacao.equals("APROVADO")) {
-            valorDescontoExtra = new BigDecimal("0.02");
-        }
-        this.valor = this.valor.subtract(valorDescontoExtra);
+        this.situacao.calcularValorDescontoExtra(this);
+    }
+
+    public void aprovar() {
+        this.situacao.aprovar(this);
+    }
+
+    public void reprovar() {
+        this.situacao.reprovar(this);
+    }
+
+    public void finalizar() {
+        this.situacao.finalizar(this);
     }
 
     public BigDecimal getValor() {
