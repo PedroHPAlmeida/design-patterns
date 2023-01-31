@@ -46,4 +46,8 @@ public class Orcamento {
         this.situacao = situacao;
     }
 
+    public boolean isFinalizado() {
+        return this.situacao instanceof Finalizado;
+    }
+
 }
