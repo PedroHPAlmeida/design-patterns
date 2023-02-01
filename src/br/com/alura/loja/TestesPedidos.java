@@ -21,6 +21,6 @@ public class TestesPedidos {
         SalvarPedidoNoBanco salvar = new SalvarPedidoNoBanco();
         LogDePedido log = new LogDePedido();
         GeraPedidoHandler handler = new GeraPedidoHandler(Arrays.asList(email, salvar, log));
-        handler.execute(gerador);
+        handler.execute(gerador); // Este método implementa o padrão FACADE
     }
 }
